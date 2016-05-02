@@ -1,0 +1,22 @@
+extends ../partial_layout.jade
+
+block content
+    div.container.center_div#chatPublicPage(ng-controller='postAnnouncementController')
+        div.row
+            div.col-md-12.col-lg-12.col-xs-12.well
+                ul.list-group
+                    li.list-group-item(ng-repeat="data in datas")
+                        span.badge {{data.TIMESTAMP|date : 'MM/dd/yyyy HH:mm:ss'}}
+                        b {{data.USERNAME}}
+                        |  announces: {{data.ANNOUNCEMENT}}
+
+                if (currentUser.privilegeLevel === "Coordinator" || currentUser.privilegeLevel === "Administrator")
+                    form#chatForm.form-horizontal(name="chatForm")
+                        div.form-group.has-feedback.has-feedback-left
+                            div.input-group
+                                span.input-group-addon
+                                    i.glyphicon.glyphicon-comment
+                                    input.form-control(name="data" type="text" ng-model="currentData")
+                        div.form-group.has-feedback.has-feedback-left
+                            input.btn.btn-success.btn-block(autocomplete="off" value="Send" type="submit" ng-click="postAnnouncement()")
+

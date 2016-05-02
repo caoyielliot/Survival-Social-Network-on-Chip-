@@ -1,0 +1,25 @@
+header.jumbotron
+    div.container
+        h1 Welcome to SSNoC ...
+        p ...pick your username, choose a password and login!
+div.container
+    div.row.center_div
+        div.col-sm-10.col-md-6.col-lg-5
+            form#loginForm.form-horizontal(name="loginForm", ng-controller="homePageController")
+                div.form-group.has-feedback.has-feedback-right
+                    label.control-label Username
+                    div.input-group
+                        span.input-group-addon
+                            i.glyphicon.glyphicon-user
+                        input#username.usernameL.form-control(name="username", placeholder='Enter your username', type='text', ng-model='username', autocomplete='off')
+                        p {{validation.username()}}
+                div.form-group.has-feedback.has-feedback-right
+                    label.control-label Password
+                    div.input-group
+                        span.input-group-addon
+                            i.glyphicon.glyphicon-pencil
+                        input#chatroom.form-control(name="password", placeholder='Enter your password', type='password', ng-model='password')
+                        p {{validation.password()}}
+                br
+                input.btn.btn-info.btn-lg.btn-raised(value="Enter Lobby", type="submit",  ng-disabled='logindisable = passworddisable || userdisable', ng-click='login_or_signup()')
+                p {{message}}

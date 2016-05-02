@@ -1,0 +1,9 @@
+dependencies:
+  pre:
+    - sudo apt-get -y install sqlite3 libsqlite3-dev
+    - npm install -g mocha istanbul
+machine:
+  timezone:
+    America/Los_Angeles
+  node:
+    version: 0.12.0

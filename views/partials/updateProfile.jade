@@ -1,0 +1,59 @@
+extends ../partial_layout.jade
+
+block content
+  link(rel='stylesheet', href='/stylesheets/chatpublically.css')
+
+  div.container(ng-controller='updateProfileController')
+
+      div.page-header
+        h1 My Profile
+        
+      if errors
+        each error in errors
+          div.alert.alert-danger
+            span #{error.error}
+      if saved
+        div.alert.alert-success
+          span Your profile has been saved         
+        
+      form.login-form.form-horizontal(method='post', enctype="multipart/form-data",role='form')
+        .row
+          .col-sm-12.col-md-3
+            input(name='_csrf', type='hidden', value=csrfToken)
+            h4 Preview
+            img(ng-src="{{image_source}}",style="width: 100px; height: 100px;")
+            div.form-group
+              button.btn.btn-default.btn-raised Upload a picture
+                input.form-control(required=true, name='photo', type='file', value=photo ,accept='image/*;capture=camera' ,ng-model="photo" ,onchange="angular.element(this).scope().setFile(this)",base-sixty-four-input)
+          .col-sm-12.col-md-9
+            div.form-group
+              label.col-sm-4 First Name
+              div.col-sm-8
+                input.form-control(placeholder='Your first name', required=true, name='givenName', type='text', value=givenName ,ng-model="profile.givenName")
+            div.form-group
+              label.col-sm-4 Last Name
+              div.col-sm-8
+                input.form-control(placeholder='Your last name', required=true, name='profile.surname', type='text', value=surname,ng-model="profile.surname")
+            div.form-group
+              label.col-sm-4 Street address
+              div.col-sm-8
+                input.form-control(placeholder='e.g. 123 Sunny Ave', required=true, name='streetAddress', type='text', value=streetAddress, ng-model="profile.streetAddress")
+            div.form-group
+              label.col-sm-4 City
+              div.col-sm-8
+                input.form-control(placeholder='e.g. 123 Sunny Ave', required=true, name='profile.city', type='text', value=city,ng-model="profile.city")
+            div.form-group
+              label.col-sm-4 State
+              div.col-sm-8
+                input.form-control(placeholder='e.g. CA', required=true, name='state', type='text', value=state,ng-model="profile.state")
+            div.form-group
+              label.col-sm-4 ZIP
+              div.col-sm-8
+                input.form-control(placeholder='e.g. 94116', required=true, name='zip', type='text', value=zip,ng-model="profile.zip")
+            div.form-group
+              div.col-sm-offset-4.col-sm-8
+                button.login.btn.btn-primary(type='submit',ng-click="updateProfile(profile)") Save
+                a.btn.btn-primary(href='../#/lobby') Return to lobby page
+          
+
+

@@ -1,0 +1,36 @@
+extends ../partial_layout.jade
+
+block content
+  
+
+  div.container(name="perfInput", ng-controller="measurePerformanceController")
+    div.row.center_div
+      div.col-sm-10.col-md-6.col-lg-5
+        form#perfInput.form-horizontal
+          div.form-group.has-feedback.has-feedback-right
+            label.control-label Test Duration
+            div.input-group
+              span.input-group-addon
+                i.glyphicon.glyphicon-time
+              input#duration.form-control(name="duration", placeholder='Enter test duration in seconds', type='number', ng-model='duration', autocomplete='off')
+              p {{validation.duration()}}
+ 
+          div.form-group.has-feedback.has-feedback-right
+            label.control-label Test Interval
+            div.input-group
+              span.input-group-addon
+                i.glyphicon.glyphicon-hourglass
+              input#interval.form-control(name="interval", placeholder='Enter interval in milliseconds', type='number', ng-model='interval')
+              p {{validation.interval()}}
+  
+        br
+        input.btn.btn-success.btn-lg.btn-raised(value="Begin Test", type="submit", ng-disabled="durationdisable || intervaldisable", ng-click='startMeasure()')
+        br
+        br
+    div.row
+      div.col-sm-offset-5.col-md-offset-5.col-lg-offset-5
+        input#endButton.btn.btn-warning.btn-lg.btn-raised(value="End Test", ng-disabled="testStarted()", ng-click='stopMeasure()')
+
+  div.container
+    div#resultsDisplay
+

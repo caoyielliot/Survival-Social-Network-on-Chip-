@@ -1,0 +1,75 @@
+doctype html
+html(ng-app="SSNoC" ng-controller="SSNoCController")
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+    link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
+    // link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap-theme.min.css')
+    link(rel='stylesheet', href='/bootstrap-material-design/dist/css/bootstrap-material-design.min.css')
+    link(rel='stylesheet', href='/bootstrap-material-design/dist/css/ripples.min.css')
+    link(rel='stylesheet', href='/material-design-icons/iconfont/material-icons.css')
+    link(rel='stylesheet', href='/bootstrap-social/bootstrap-social.css')
+    link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
+    link(rel='icon', type='image/icon' href='/favicon.ico')
+
+    // title
+    block title
+        title S16-SV1-SSNoC
+
+    // additional stylesheets for each page
+    block additional_stylesheets
+  body
+    // page content
+    block content
+        div(ui-view).container-fluid
+
+    // Libraries
+    script(src='/jquery/dist/jquery.min.js')
+    script(src='/arrive/minified/arrive.min.js')
+    script(src='/angular/angular.js')
+    script(src='/angular-ui-router/release/angular-ui-router.min.js')
+    script(src='/bootstrap/dist/js/bootstrap.min.js')
+    script(src='/bootstrap-material-design/dist/js/material.min.js')
+    script(src='/bootstrap-material-design/dist/js/ripples.min.js')
+    script(src='/moment/min/moment-with-locales.min.js')
+    script(src='/angular-momentjs/angular-momentjs.min.js')
+    script(src='/socket.io-client/socket.io.js')
+    script(src='/angular-socket-io/socket.js')
+    script(src='/angular-base64/angular-base64.js')
+    script(src='/angular-sanitize/angular-sanitize.min.js')
+    
+    // additional scripts for each page
+    block additional_scripts
+        // Services
+        script(src='/app/services/notificationService.js')
+        script(src='/app/services/homeService.js')
+        script(src='/app/services/userService.js')
+        script(src='/app/services/socketService.js')
+        script(src='/app/services/search.js')
+        script(src='/app/services/messageService.js')
+        script(src='/app/services/profileService.js')
+        script(src='/app/services/chatPrivatelyService.js')
+        script(src='/app/services/navbarService.js')
+        script(src='/app/services/administratorUserProfileService.js')
+
+        
+        
+        // Controllers, etc...
+        script(src='/app/main.js')
+        script(src='/app/controllers/homePageController.js')
+        script(src='/app/controllers/navbarController.js')
+        script(src='/app/controllers/directoryController.js')
+        script(src='/app/controllers/updateProfileController.js')
+        script(src='/app/controllers/checkProfileController.js')
+        script(src='/app/controllers/chatPubliclyController.js')
+        script(src='/app/controllers/chatPrivatelyController.js')
+        script(src='/app/controllers/postAnnouncementController.js')
+        script(src='/app/controllers/searchResultController.js')
+        script(src='/app/controllers/statusController.js')
+        script(src='/app/controllers/measurePerformanceController.js')
+        script(src='/app/controllers/shareLocationController.js')
+        script(src='/app/controllers/administratorPageController.js')
+        script(src='/app/controllers/administratorUserProfileController.js')
+        
+
+        
+

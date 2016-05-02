@@ -1,0 +1,26 @@
+extends ../partial_layout.jade
+
+block content
+    .container#administorPage(ng-controller='administratorPageController')
+        //.row
+        //    form
+        //        .form-group.label-floating
+        //            label.control-label(for="user_name") Input a user name to Administor
+        //            .input-group
+        //                input.form-control#user_name(type="text")
+        //                span.input-group-btn
+        //                    button.btn.btn-primary(type="button") Submit
+        h2 All Users
+        .row
+            table.table.table-hover
+                tr
+                    th User Name
+                    th Account Status
+                    th Privilege Level
+                    th
+                tr(ng-repeat="user in users")
+                    th {{user.NAME}}
+                    th {{user.ACCOUNTSTATUS}}
+                    th {{user.PRIVILEGELEVEL}}
+                    th
+                        button.btn.btn-default.btn-raised(ng-click="administrate(user.NAME, user.ACCOUNTSTATUS, user.PRIVILEGELEVEL)") Administrate

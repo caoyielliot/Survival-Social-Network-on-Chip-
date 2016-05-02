@@ -1,0 +1,50 @@
+extends ../partial_layout.jade
+
+block content
+  link(rel='stylesheet', href='/stylesheets/chatpublically.css')
+
+  div.container(ng-controller='checkProfileController')
+
+      div.page-header
+        h1 My Profile
+        
+      if errors
+        each error in errors
+          div.alert.alert-danger
+            span #{error.error}
+      if saved
+        div.alert.alert-success
+          span Your profile has been saved
+      form.login-form.form-horizontal(method='post', role='form')
+        input(name='_csrf', type='hidden', value=csrfToken)
+        img(ng-src="{{image_source}}",style="width: 100px; height: 100px;")
+        div.form-group
+          label.col-sm-4 First Name
+          div.col-sm-8
+             {{profile.givenName}}
+        div.form-group
+          label.col-sm-4 Last Name
+          div.col-sm-8
+             {{profile.surname}}
+        div.form-group
+          label.col-sm-4 Street address
+          div.col-sm-8
+             {{profile.streetAddress}}
+        div.form-group
+          label.col-sm-4 City
+          div.col-sm-8
+             {{profile.city}}
+        div.form-group
+          label.col-sm-4 State
+          div.col-sm-8
+             {{profile.state}}
+        div.form-group
+          label.col-sm-4 ZIP
+          div.col-sm-8
+             {{profile.zip}}
+        div.pull-right
+          a(href='../#/lobby') Return to lobby page
+
+
+
+

@@ -1,0 +1,72 @@
+html, body {
+    margin: 0;
+    background-color: #efefef;
+    font-family: sans-serif;
+}
+.foo {
+    width: 400px;
+    height: 650px;
+    padding: 5px;
+    margin: 0 auto;
+    background-color: lightblue;
+}
+
+#loginfoo {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(5, 5, 5, .6);
+    text-align: center;
+    color: #fff;
+    display: block;
+    padding-top: 200px;
+}
+
+.soo {
+    height: 80px;
+    width: 100%;
+}
+.present {
+    height: 100px;
+    margin: 5px 0px;
+    position: relative;
+}
+
+
+#viewmessage {
+    height: 400px;
+    background-color: #fff;
+    overflow: auto;
+    padding: 2px;
+    width: : 400px;
+}
+
+.timespan {
+    color: #ddd;
+}
+.items {
+    height: 30px;
+}
+#colorStyle {
+    width: 50px;
+    border: none;
+    padding: 0;
+}
+/*custom the file input*/
+
+
+#messageInput {
+    width: 395px;
+    max-width: 400px;
+    height: 90px;
+    max-height: 90px;
+    float:left;
+}
+#sendBtn {
+    width: 50px;
+    height: 96px;
+    float: right;
+}
+

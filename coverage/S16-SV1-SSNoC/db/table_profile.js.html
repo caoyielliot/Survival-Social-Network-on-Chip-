@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for S16-SV1-SSNoC/db/table_profile.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">S16-SV1-SSNoC/db/</a> table_profile.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.87% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>26/31</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>3/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.87% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>26/31</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">module.exports = {
+&nbsp;
+	createTable: function(db) {
+		console.log("Creating profiles table....");
+		db.serialize(function() {
+			db.run("CREATE TABLE profiles("+
+        "ID INTEGER PRIMARY KEY AUTOINCREMENT,"+
+        "originalName CHAR(256) NOT NULL,"+
+        "givenName CHAR(256) NOT NULL,"+
+        "surname  CHAR(256) NOT NULL,"+
+        "streetAddress  CHAR(256) NOT NULL,"+
+        "city CHAR(256) NOT NULL,"+
+        "state CHAR(256) NOT NULL,"+
+        "zip CHAR(256) NOT NULL,"+
+        "image BLOB NOT NULL"+
+      ")");
+&nbsp;
+		});
+	},
+  // db.run("CREATE TABLE private_messages("+
+  //       "ID INTEGER PRIMARY KEY AUTOINCREMENT,"+
+  //       "USERNAME1 CHAR(256) NOT NULL,"+
+  //       "USERNAME2 CHAR(256) NOT NULL,"+
+  //       "MESSAGE TEXT,"+
+  //       "Timestamp DATETIME"+
+  //     ")");
+   
+&nbsp;
+    saveProfile: function(db,handler,data){
+       //insert messages to the profiles table
+       console.log("insert messages to the profiles table");
+     //  console.log(data);
+       var givenName=data.givenName;
+       var surname=data.surname;
+       var streetAddress=data.streetAddress;
+       var state=data.state;
+       var zip=data.zip;
+       var city=data.city;
+       var image=data.image;
+       var originalName=data.originalName;
+       console.log(originalName);
+       db.run("INSERT INTO profiles(originalName, givenName, surname, streetAddress, city , state, zip, image) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", [originalName, givenName, surname, streetAddress, city, state, zip, image], function(error){
+      <span class="missing-if-branch" title="if path not taken" >I</span>if(error){
+<span class="cstat-no" title="statement not covered" >        console.log("Error INSERT Profile");</span>
+<span class="cstat-no" title="statement not covered" >        handler(null,error);</span>
+      }else {
+        handler(true,null);
+      }
+    });
+&nbsp;
+    },
+&nbsp;
+&nbsp;
+    getProfile: function(db,handler,data){
+      var originalName=data.originalName;
+      console.log("get profile from db!!!");
+      console.log(originalName);
+      var profiles=[];
+      db.each("SELECT givenName, surname, streetAddress, city ,state, zip, image FROM profiles WHERE (originalName=?) ORDER BY ID DESC LIMIT 1", [originalName],function(error, row){
+      <span class="missing-if-branch" title="if path not taken" >I</span>if(error){
+<span class="cstat-no" title="statement not covered" >        console.log("Error SELECT PREVIOUS Profile");</span>
+<span class="cstat-no" title="statement not covered" >        handler(false,error);</span>
+      }else <span class="missing-if-branch" title="if path not taken" >I</span>if(row.length===0){
+<span class="cstat-no" title="statement not covered" >        handler(false, null);</span>
+      }else{
+        profiles.push(row);
+      }
+    },function(){
+        handler(profiles,null);
+      });
+    }
+&nbsp;
+};</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Apr 06 2016 12:26:30 GMT-0700 (PDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

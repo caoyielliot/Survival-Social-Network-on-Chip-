@@ -1,0 +1,43 @@
+extends ../partial_layout.jade
+block content
+
+
+
+    div.container#chatPublicPage(ng-controller='searchResultController',ng-init="x=10;y=1")
+        h2 Search
+        div.form-horizontal
+            div.form-group
+                label.col-md-2.control-label(for="inputKeywords") Search Keywords
+                div.col-md-10
+                    input.form-control(ng-model="keywords" name="inputKeywords" type="text" class="form-control" placeholder="Search for...")
+                    span.help-block {{validation.keywords()}}
+            div.form-group
+                label.col-md-2.control-label(for="searchType") Search Type
+                div.col-md-10
+                    .radio.radio-primary(ng-repeat="section in sections" ng-class="{active : isSelected(section)}" init-material-directive)
+                        label
+                            input(type="radio" name="searchType"  ng-click="setSelected(section)")
+                            | {{section.name}}
+
+            div.col-md-10.col-md-offset-2
+                button.btn.btn-raised.btn-primary(type='button' ng-click="setMaster()") SEARCH
+
+        #search_result(style="display:none;")
+            hr(style="clear:both;")
+            h2 Search Result
+            div.row
+                div.col-md-12.col-lg-12.col-xs-12.well
+                    ul.list-group
+                            b Number of Search Results: {{count.generalcounter(x,y)}}
+                        li.list-group-item(ng-repeat="message in messages| limitTo:x*y:0")
+                            span.badge {{message.Timestamp||message.TIMESTAMP|date : 'MM/dd/yyyy HH:mm:ss'}}
+                            b {{message.USERNAME || message.USERNAME1}}
+                            |  says: {{message.MESSAGE||message.ANNOUNCEMENT}}
+                        li.list-group-item(ng-repeat="showeduser in showedusers | limitTo:x*y:0")
+                            span.badge {{showeduser.USERONLINE}}
+                            b {{showeduser.USERNAME}}
+                            |  status: {{showeduser.STATUS}}
+
+            div.form-group.has-feedback.has-feedback-left
+                input.btn.btn-success.btn-block(autocomplete="off" value="Search More" type="submit" ng-click="y=y+1")
+

@@ -1,0 +1,54 @@
+extends ../partial_layout.jade
+
+block content
+    .container-fluid
+        // #lobbyPage(ng-controller='lobbyPageController')
+        #notification
+        .row
+            #directory(ng-controller='directoryController').col-xs-12.col-md-4
+                h2 User Directory
+                .list-group
+                    div(ng-repeat="user in users")
+                        .row
+                            .col-xs-7.col-md-7.col-lg-7
+                                .list-group-item
+                                    .row-action-primary
+                                        img.img-circle(ng-src='{{user.image}}', ng-click='updateprofile(user.NAME)') 
+                                    .row-content
+                                        h4.list-group-item-heading(type='button' ng-click='updateProfile(user.NAME)') {{user.NAME}}
+                                        p status: {{user.STATUS}}
+                                        p {{user.ONLINE}}
+                                        p {{user.LOCATION}}
+                            .col-xs-5.col-md-5.col-lg-5
+                                div
+                                    br
+                                div(ng-if="user.NAME === currentUser")
+                                    button.btn.btn-raised.btn-sm(type='button' ng-click='updateprofile(user.NAME)') Upload My Profile
+                                div(ng-if="user.NAME !== currentUser")
+                                    button.btn.btn-raised.btn-sm(type='button' ng-click='checkProfile(user.NAME)') Check My Profile
+                                div(ng-if="user.NAME !== currentUser")
+                                    button.btn.btn-raised.btn-sm(type='button' ng-click='sendUserName(user.NAME)') Chat With Me
+                        .list-group-separator
+            #status(ng-controller='statusController').col-xs-12.col-md-4
+                h2 User Status
+                .well(ng-bind-html='statusMessage')
+                form
+                    .form-group
+                        .radio.radio-primary
+                            label
+                                input(type="radio" ng-model="status" name="statusRadios" value="Ok" checked)
+                                span.circle
+                                | Ok
+                        .radio.radio-primary
+                            label
+                                input(type="radio" ng-model="status" name="statusRadios" value="Help")
+                                span.circle
+                                | Help
+                        .radio.radio-primary
+                            label
+                                input(type="radio" ng-model="status" name="statusRadios" value="Emergency")
+                                span.circle
+                                | Emergency
+                    .form-group
+                        button(class="btn btn-primary", ng-click="updateStatus()") SUBMIT
+

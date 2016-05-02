@@ -1,0 +1,50 @@
+extends ../partial_layout.jade
+block content
+    #share_location(ng-controller="shareLocationController")
+        h1 Share location
+        div(ng-class="shareForm")
+            form.form-horizontal
+                fieldset
+                    legend Share location so that others can find you.
+                    .form-group
+                        label.col-md-2.control-label(for="inputRadius") Radius
+                        .col-md-10
+                            input.form-control#inputRadius(type="text", placeholder="Radius of nearby online users, in meter", ng-model="radius", ng-change="validateRadius()")
+                            p.help-block {{helpRadius}}
+                    .form-group
+                        .col-md-10.col-md-offset-2
+                            button.btn.btn-raised.btn-default(type="button", ng-click="cancelSharing()") Cancel sharing
+                            button.btn.btn-raised.btn-primary(type="button", ng-class="shareButton", ng-click="registerLocation()") Share my location
+
+        h2(ng-class="shareFormNotAvailable") Sorry, your browser is not compatible to share location.
+        h2(ng-class="canNotRetrieveLocation") Sorry, the system can not retrieve your Citizen’s location.
+        div.row(ng-class="yourLocation")
+            div.col-md-6.col-xs-12
+                h2 Your location is {{dms}}.
+                button.btn.btn-raised.btn-primary(type="button", ng-click="registerLocation(true)") Refresh
+                #radar_wrapper(style="position:relative;width: 600px; height: 600px;")
+                    canvas#radar(width="600", height="600", style="border:1px solid #d3d3d3;position:absolute")
+            div.col-md-6.col-xs-12
+            #directory(ng-controller='directoryController').col-xs-12.col-md-4
+                h2 Nearby Users
+                .list-group
+                    div(ng-repeat="user in nearby_users")
+                        .row
+                            .col-xs-7.col-md-7.col-lg-7
+                                .list-group-item
+                                    .row-action-primary
+                                        i.material-icons(type='button' ng-click='updateprofile(user.user_name)') account_boxa
+                                    .row-content
+                                        h4.list-group-item-heading(type='button' ng-click='updateProfile(user.user_name)') {{user.user_name}}
+                                        p status: {{user.STATUS}}
+                                        p {{user.dms}}
+                            .col-xs-5.col-md-5.col-lg-5
+                                div
+                                    br
+                                div
+                                    button.btn.btn-raised.btn-sm(type='button' ng-click='checkProfile(user.user_name)') Check My Profile
+                                div
+                                    button.btn.btn-raised.btn-sm(type='button' ng-click='sendUserName(user.user_name)') Chat With Me
+                                div
+                                    br
+                        .list-group-separator

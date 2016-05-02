@@ -1,0 +1,33 @@
+extends ../partial_layout.jade
+
+block content
+    .container(ng-controller='administratorUserProfileController')
+        .row
+            form
+                .form-group.row
+                    label.col-md-2.control-label(for="user_name") User Name
+                    .col-md-10
+                        input.form-control#user_name(type="text",ng-model="user.newName",placeholder="Please retype or change the user name for {{user.userName}}")
+                        p.help-block {{validation.username()}}
+                .form-group.row
+                    label.col-md-2.control-label(for="password") Password
+                    .col-md-10
+                        input.form-control#password(type="password",ng-model="user.password",placeholder="Leave blank if you do not want to change it")
+                        p.help-block {{validation.password()}}
+                .form-group
+                    label.col-md-2.control-label AccountStatus
+                    .col-md-10
+                        .radio.radio-primary(ng-repeat="option in accountStatusOptions")
+                            label
+                                input(type="radio", ng-checked="option===user.accountStatus", ng-model="user.accountStatus", ng-value="option")
+                                | {{option}}
+                hr(style="clear:both")
+                .form-group
+                    label.col-md-2.control-label Privilege Level
+                    .col-md-10
+                        .radio.radio-primary(ng-repeat="option in privilegeLevelOptions")
+                            label
+                                input(type="radio", ng-checked="option===user.privilegeLevel", ng-model="user.privilegeLevel", ng-value="option")
+                                | {{option}}
+
+                button.btn.btn-primary(type="button",ng-disabled='logindisable = passworddisable || userdisable', ng-click="submit()") Submit

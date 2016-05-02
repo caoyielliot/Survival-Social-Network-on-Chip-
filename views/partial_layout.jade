@@ -1,0 +1,40 @@
+// navbar
+#lobbynavbar(ng-controller='navbarController')
+    .navbar.navbar-success
+        .container-fluid
+                .navbar-header
+                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-warning-collapse')
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.navbar-brand(href='javascript:void(0)' ng-click="lobby()")
+                        | SSNoC
+                        .ripple-container
+                .navbar-collapse.collapse.navbar-warning-collapse
+                    ul.nav.navbar-nav
+                        li(ng-class="navLobby")
+                            a(href='javascript:void(0)' ng-click="lobby()") Lobby
+                        li(ng-class="navChatPublicly")
+                            a(href='javascript:void(0)' ng-click="chatPublicly()") Chat Publicly <span class="badge">{{message_navbar}}</span>
+                        li(ng-class="navChatprivately")
+                            a(href='javascript:void(0)' ng-click="chatPrivately()") Chat Privately <span class="badge">{{private_message_navbar}}</span>
+                        li(ng-class="navPostAnnouncement")
+                            a(href='javascript:void(0)' ng-click="postAnnouncement()") Post Announcement
+                        li(ng-class="navMeasurePerf")
+                            a(href='javascript:void(0)' ng-click="measurePerf()") Measure Performance
+                        li(ng-class="navShareLocation")
+                            a(href="javascript:void(0)" ng-click="shareLocation()") Share Location
+                        li(ng-class="navAdministerPage")
+                            a(href="javascript:void(0)" ng-click="administratorPage()") Administer User Profile
+
+                    ul.nav.navbar-nav.navbar-right
+                        li#search_button
+                            a(href="javascript: void(0)" data-toggle="modal" data-target="#search_modal" ng-click="search()")
+                                span.glyphicon.glyphicon-search
+                        li
+                            a(href='javascript:void(0)') {{currentUser}}
+                        li
+                            a#logout(href='javascript:void(0)', ng-click = 'logout()') Log out
+
+    #notification     
+block content

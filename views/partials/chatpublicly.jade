@@ -1,0 +1,31 @@
+extends ../partial_layout.jade
+
+block content
+    div.container.center_div#chatPublicPage(ng-controller='chatPubliclyController')
+        div.row
+            div.col-md-12.col-lg-12.col-xs-12.well
+                ul.list-group
+                    li.list-group-item(ng-repeat="message in messages")
+                        span.badge {{message.Timestamp|date : 'MM/dd/yyyy HH:mm:ss'}}
+                        b {{message.USERNAME}}
+                        |   says:   
+                        span(ng-if='message.MESSAGE') {{ message.MESSAGE }}
+                        img(ng-if='message.image', ng-src='{{ message.image }}')
+
+                form#chatForm.form-horizontal(name="chatForm")
+                    div.form-group.has-feedback.has-feedback-left
+                        div.input-group
+                            span.input-group-addon
+                                i.glyphicon.glyphicon-comment
+                                input.form-control(name="message" type="text" ng-model="currentMsg")
+                    div.form-group.has-feedback.has-feedback-left
+                        input.btn.btn-success.btn-block(autocomplete="off" value="Send Message" type="submit" ng-click="sendMessage()")
+                    div.form-group.has-feedback.has-feedback-left
+                        input(value="Picture" type="file" accept="image/*" capture="camera" fileread="data.image")
+                        input.btn.btn-info.btn-block(autocomplete="off" value="Take Picture" type="submit")
+                    div.btn-group.btn-group-justified
+                        div.btn-group
+                            input.btn.btn-success.btn-raised(ng-if='data.image' autocomplete="off" value="Send Picture" type="submit" ng-click="sendPicture()")
+                        div.btn-group
+                            input.btn.btn-warning.btn-raised(ng-if='data.image' autocomplete="off" value="Cancel Picture" type="submit" ng-click="cancelPicture()")
+                  

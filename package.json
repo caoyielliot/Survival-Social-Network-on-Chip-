@@ -1,0 +1,36 @@
+{
+  "name": "demo-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "setup": "npm install && bower install",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report html --dir $CIRCLE_ARTIFACTS -- -R spec"
+  },
+  "dependencies": {
+    "assert.js": "^0.5.0",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "crypto-js": "latest",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "express-session": "^1.13.0",
+    "grunt-cli": "^0.1.13",
+    "jade": "~1.11.0",
+    "mapbox.js": "^2.3.0",
+    "moment": "^2.11.2",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0",
+    "session-file-store": "^0.2.0",
+    "socket.io": "^1.4.5",
+    "socketio-auth": "0.0.5",
+    "sqlite3": "^3.1.1"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.2",
+    "jshint": "^2.9.1",
+    "mocha": "^2.4.5",
+    "mocha-circleci-reporter": "0.0.1",
+    "supertest": "^1.2.0"
+  }
+}
